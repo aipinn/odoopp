@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+
         <record id="ap_templ_view_form" model="ir.ui.view">
             <field name="name">ap.templ.form</field>
             <field name="model">ap.templ</field>
@@ -10,7 +11,8 @@
                         <button name="action_review" states="draft" type="object" string="提交审核" class="oe_highlight"/>
                         <button name="action_down" states="review" type="object" string="审核" class="oe_highlight"/>
                         <button name="action_cancel" states="down" type="object" string="取消" class="oe_highlight"/>
-                        <button name="action_draft" states="review,cancel" type="object" string="转存草稿" class="oe_highlight"/>
+                        <button name="action_draft" states="review,cancel" type="object" string="转存草稿"
+                                class="oe_highlight"/>
                         <field name="state" widget="statusbar"
                                statusbar_visible="draft,review,down,cancel"
                                class="oe_right"
@@ -45,11 +47,11 @@
                                     <field name="province" style="width:33%%" placeholder="省份"/>
                                 </div>
 
-                                <field name="name" string="New名称" />
+                                <field name="name" string="New名称"/>
                             </group>
                             <group>
                                 <field name="active" readonly="1"/>
-                                <field name="image" widget="image" />
+                                <field name="image" widget="image"/>
                             </group>
                         </group>
 
@@ -63,10 +65,37 @@
                 </form>
             </field>
         </record>
+        <record id="ap_templ_sub_view_form" model="ir.ui.view">
+            <field name="name">ap.templ.sub.form</field>
+            <field name="model">ap.templ.sub</field>
+            <field name="arch" type="xml">
+                <form string="form name">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <record id="ap_templ_view_tree" model="ir.ui.view">
-            <field name="name">ap_templ.tree</field>
+            <field name="name">ap_templ_tree</field>
             <field name="model">ap.templ</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="tree name">
+                    <field name="name"/>
+                    <field name="city"/>
+                    <field name="postcode"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ap_templ_sub_view_tree" model="ir.ui.view">
+            <field name="name">ap_templ_sub_tree</field>
+            <field name="model">ap.templ.sub</field>
             <field name="priority">1</field>
             <field name="arch" type="xml">
                 <tree string="tree name">
@@ -86,7 +115,7 @@
         </record>
 
         <record id="ap_templ_action" model="ir.actions.act_window">
-            <field name="name">模板actions</field>
+            <field name="name">编辑模板</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">ap.templ</field>
             <field name="view_mode">tree,form</field>
@@ -99,7 +128,32 @@
             </field>
         </record>
 
-        <menuitem name="模板" id="ap_templ_menu" action="ap_templ_action" sequence="1"/>
+        <record id="ap_templ_sub_action" model="ir.actions.act_window">
+            <field name="name">编辑模板sub</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ap.templ.sub</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="ap_templ_sub_view_tree"/>
+            <!--<field name="search_view_id" ref="ap_templ_view_search"/>-->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    模板sub
+                </p>
+            </field>
+
+        </record>
+
+        <!--<menuitem name="模板(menuitem)" id="ap_templ_menu" action="ap_templ_action" sequence="1"/>-->
+
+        <menuitem name="模板(0)" id="ap_templ_menu" sequence="0"/>
+
+        <menuitem name="侧边1" id="ap_templ_menu_content" parent="ap_templ_menu"/>
+        <menuitem name="侧边1.1" id="ap_templ_menu_11" parent="ap_templ_menu_content" action="ap_templ_action"/>
+        <menuitem name="侧边1.2" id="ap_templ_menu_12" parent="ap_templ_menu_content" action="ap_templ_action"/>
+
+        <menuitem name="侧边2" id="ap_templ_menu_content_2" parent="ap_templ_menu"/>
+        <menuitem name="侧边2.1" id="ap_templ_menu_21" parent="ap_templ_menu_content_2" action="ap_templ_sub_action"/>
+        <menuitem name="侧边2.2" id="ap_templ_menu_22" parent="ap_templ_menu_content_2" action="ap_templ_sub_action"/>
 
     </data>
 </odoo>

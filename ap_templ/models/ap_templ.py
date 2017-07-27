@@ -54,4 +54,11 @@ class ap_templ(models.Model):
     def action_box(self):
         self.write({'state': 'draft'})
 
+class ap_templ_sub(models.Model):
+    _name = "ap.templ.sub"
+    _description = u'模板sub'
+
+    name = fields.Char(string=u'名称sub')
+
+
 

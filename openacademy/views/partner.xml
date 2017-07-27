@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
     <data>
-        <!--Add instructor field to existing view -->
+        <!-- Add instructor field to existing view -->
         <record model="ir.ui.view" id="partner_instructor_form_view">
             <field name="name">partner.instructor</field>
             <field name="model">res.partner</field>
@@ -23,13 +23,13 @@
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
-
         <menuitem id="configuration_menu" name="Configuration"
-                  partner="main_openacademy_menu"/>
+                  parent="main_openacademy_menu"/>
         <menuitem id="contact_menu" name="Contacts"
-                  partner="configuration_menu"
+                  parent="configuration_menu"
                   action="contact_list_action"/>
-        <record model="ir.actions.act_window" id="contact_cat_list_action">
+
+                <record model="ir.actions.act_window" id="contact_cat_list_action">
             <field name="name">Contact Tags</field>
             <field name="res_model">res.partner.category</field>
             <field name="view_mode">tree,form</field>
@@ -37,6 +37,7 @@
         <menuitem id="contact_cat_menu" name="Contact Tags"
                   parent="configuration_menu"
                   action="contact_cat_list_action"/>
+
         <record model="res.partner.category" id="teacher1">
             <field name="name">Teacher / Level 1</field>
         </record>
