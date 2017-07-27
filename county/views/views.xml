@@ -1,0 +1,69 @@
+<odoo>
+  <data>
+
+    <!--<record model="ir.ui.view" id="county.list">-->
+      <!--<field name="name">county list</field>-->
+      <!--<field model="model">county.province</field>-->
+      <!--<field name="arch" type="xml">-->
+        <!--<tree string="province list">-->
+          <!--<field name="name"/>-->
+        <!--</tree>-->
+      <!--</field>-->
+    <!--</record>-->
+    <!-- explicit list view definition -->
+    <!--
+        <record model="ir.ui.view" id="county.list">
+          <field name="name">county list</field>
+          <field name="model">county.county</field>
+          <field name="arch" type="xml">
+            <tree>
+              <field name="name"/>
+              <field name="value"/>
+              <field name="value2"/>
+            </tree>
+          </field>
+        </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="county.action_window">
+      <field name="name">county window</field>
+      <field name="res_model">county.county</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="county.action_server">
+      <field name="name">county server</field>
+      <field name="model_id" ref="model_county_county"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="county" id="county.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="county.menu_1" parent="county.menu_root"/>
+    <menuitem name="Menu 2" id="county.menu_2" parent="county.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="county.menu_1_list" parent="county.menu_1"
+              action="county.action_window"/>
+    <menuitem name="Server to list" id="county" parent="county.menu_2"
+              action="county.action_server"/>
+    -->
+  </data>
+</odoo>

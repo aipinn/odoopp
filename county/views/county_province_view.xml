@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Form -->
+        <record id="county_province_form" model="ir.ui.view">
+            <field name="name">**行省编辑**</field>
+            <field name="model">county.province</field>
+            <field name="arch" type="xml">
+                <form string="这个不知道是啥啊">
+                    <!-- Header-->
+                    <header>
+
+                        <button name="action_search" states="draft" type="object" string="测试"/>
+                        <button name="action_review" states="draft" type="object" string="提交审核"/>
+                        <button name="action_down" states="review,cancel" type="object" string="审核"/>
+                        <button name="action_cancel" states="down" type="object" string="取消"/>
+                        <button name="action_draft" states="review,down,cancel" type="object" string="转存草稿"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,review,down,cancel"
+                               class="oe_right"/>
+
+                    </header>
+                    <!-- Sheet -->
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="seq" required="1" readonly="1"/>
+                                <field name="name" required="1"/>
+                                <field name="isEdge"/>
+                                <field name="quantity"/>
+                                <field name="code"/>
+                                <field name="area" digits="(9,3)"/>
+                                <field name="remark"/>
+                                <field name="add_date" required="1"/>
+                                <field name="news_date" required="1"/>
+                                <field name="total"/>
+                            </group>
+                            <group>
+                                <field name="city_level"/>
+                                <field name="admin_ids"/>
+                                <field name="function"/>
+                                <field name="m2m"/>
+                            </group>
+                        </group>
+
+                        <field name="city_indexes">
+                            <tree sting="list" editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="name"/>
+                                <field name="gdp"/>
+                                <field name="postcode"/>
+                            </tree>
+                        </field>
+
+                        <field name="description"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree -->
+        <record id="county_province_tree" model="ir.ui.view">
+            <field name="name">**行省列表**</field>
+            <field name="model">county.province</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="isEdge"/>
+                    <field name="quantity"/>
+                    <field name="code"/>
+                    <field name="area"/>
+                    <field name="remark"/>
+                    <field name="add_date"/>
+                    <field name="news_date" required="1"/>
+                    <field name="admin_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--窗体事件 search query -->
+        <record id="county_province_action" model="ir.actions.act_window">
+            <field name="name">省份编辑</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">county.province</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p clase="oe_view_nocontent_create">
+                    省份管理
+                </p>
+
+            </field>
+        </record>
+
+        <menuitem name="--行省管理--" id="county_province_menu" action="county_province_action" sequence="0"/>
+
+    </data>
+</odoo>

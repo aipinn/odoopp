@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" ap_templempl.list">
+      <field name="naap_templempl list</field>
+      <field name="modap_templeap_templempl</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" ap_templempl.action_window">
+      <field name="naap_templempl window</field>
+      <field name="res_modap_templeap_templempl</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" ap_templempl.action_server">
+      <field name="naap_templempl server</field>
+      <field name="model_id" ref="model_ap_sale_templ_ap_sale_templ"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem naap_templempl" ap_templempl.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" ap_templempl.menu_1" pareap_templempl.menu_root"/>
+    <menuitem name="Menu 2" ap_templempl.menu_2" pareap_templempl.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" ap_templempl.menu_1_list" pareap_templempl.menu_1"
+              actiap_templempl.action_window"/>
+    <menuitem name="Server to list" ap_templempl" pareap_templempl.menu_2"
+              actiap_templempl.action_server"/>
+    -->
+  </data>
+</odoo>

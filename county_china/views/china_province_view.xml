@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="country_province_china_form">
+            <field name="name">中国(China)</field>
+            <field name="model">county.province</field>
+            <field name="inherit_id" ref="county.county_province_form"/>
+            <field name="arch" type="xml">
+                <!--<field name='name' position="after">-->
+                    <!--<field name="county"/>-->
+                <!--</field>-->
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="county"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
